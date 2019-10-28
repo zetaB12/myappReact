@@ -2,8 +2,44 @@ import React, { Component } from 'react';
 
 class Formulario extends Component{
 
+    //ref son para leer comapos de un formulario
+
+    marcaRef = React.createRef();
+    yearRef = React.createRef();
+    planBasicoRef = React.createRef();
+    planCompletoRef = React.createRef();
+
+    cotizarSeguro = (e) => {
+        e.preventDefault();
+        
+        //leer el plan
+        const plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
+
+        //obtener los datos
+        console.log(this.marcaRef.current.value);
+
+        //crear objetos
+        const infoAutos = {
+            marca : this.marcaRef.current.value,
+            year : this.yearRef.current.value,
+            plan : plan
+        }
+        console.log(infoAutos);
+        //enviarlo al component principal
+    }
+
     render(){
-        return( 
+        return( /*puedo evitar esta linea this.cotizarSeguro.bind(this) por esta this.cotizarSeguro -- siempre y cuando en mi metodo cotizarSeguro este escrito de la siguiente manera para que no pierda el scope ,aqui va el codigo antiguo
+         cotizarSeguro(e){
+            e.preventDefault();
+            console.log(this.marcaRef.current.value);  
+        } 
+        y aqui el codigo refactorizado para que no pierda el scope
+         cotizarSeguro = (e) => {
+            e.preventDefault();
+            console.log(this.marcaRef.current.value);
+        }
+        */
             <form onSubmit={ this.cotizarSeguro }> 
                 <div className="campo">
                     <label>Marca</label>
