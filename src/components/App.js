@@ -1,15 +1,23 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../css/App.css';
 import Header from './Header';
-
+import Productos from './Productos';
+import Footer from './Footer';
 
 function App(){
-  //var hola = 'Dey';
+  const productos = [
+    {nombre : 'Libro', precio : 100},
+    {nombre : 'Cd', precio : 50},
+    {nombre : 'Manzana', precio : 20},
+    {nombre : 'Chompa', precio : 130}
+  ]
   return (
     <div>
-    <Header/>
-    <p>componente App(Home)</p>
+    <Header
+      titulo="Nuestra tienda virtual" />
+    <Productos 
+      productos = {productos}/>
+    <Footer />
     
     
     </div>
