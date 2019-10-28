@@ -1,28 +1,16 @@
-import React from 'react';
-import '../css/App.css';
+import React, { Component } from 'react';
 import Header from './Header';
-import Productos from './Productos';
-import Footer from './Footer';
+import Formulario from './Formulario';
 
-function App(){
-  const productos = [
-    {nombre : 'Libro', precio : 100},
-    {nombre : 'Cd', precio : 50},
-    {nombre : 'Manzana', precio : 20},
-    {nombre : 'Chompa', precio : 130}
-  ]
-  return (
-    <div>
-    <Header
-      titulo="Nuestra tienda virtual" />
-    <Productos 
-      productos = {productos}/>
-    <Footer />
-    
-    
-    </div>
-    
-  )
+class App extends Component{
+    render(){
+        return(
+            <div className="contenedor">
+                <Header titulo = 'Cotizador de seguros de Autos'/>
+                <Formulario />
+            </div>
+        )
+    }
 }
 
 export default App;
